@@ -1,0 +1,13 @@
+/* 
+   Localizable.strings
+  io-nd-memeMe-1.0
+
+  Created by Patrice Müller on 23.10.16.
+  Copyright © 2016 swissonid. All rights reserved.
+*/
+"label_cancel" = "Cancel";
+"label_camera" = "Camera";
+"label_share" = "Share";
+"placeholder_toptext" = "Top";
+"placeholder_bottomtext" = "Bottom";
+"label_album" = "label_album";

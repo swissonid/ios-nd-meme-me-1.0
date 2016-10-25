@@ -1,0 +1,12 @@
+
+/* Class = "UITextField"; placeholder = "TOP "; ObjectID = "9dH-vZ-qpQ"; */
+"9dH-vZ-qpQ.placeholder" = "TOP ";
+
+/* Class = "UITextField"; placeholder = "BOTTOM"; ObjectID = "Lyf-Ns-Y7M"; */
+"Lyf-Ns-Y7M.placeholder" = "BOTTOM";
+
+/* Class = "UIBarButtonItem"; title = "Album"; ObjectID = "PGx-mf-cUL"; */
+"PGx-mf-cUL.title" = "Album";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "beG-sx-rpK"; */
+"beG-sx-rpK.title" = "Cancel";
