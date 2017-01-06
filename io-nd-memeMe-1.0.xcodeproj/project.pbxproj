@@ -11,10 +11,10 @@
 		C5F3D1432B83DB6BA2549B09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5F3D8824D847880633D089C /* LaunchScreen.storyboard */; };
 		C5F3D146E2DF2188993B7FB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5F3DDCC14E8AA1C19609835 /* Assets.xcassets */; };
 		C5F3D2D74EC40628A5AAD0FE /* io_nd_memeMe_1_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3DE7EB0DDEBB016CB24D0 /* io_nd_memeMe_1_0UITests.swift */; };
-		C5F3D332D8D29E665328926F /* io_nd_memeMe_1_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3DF6D3BEDB70155222CBD /* io_nd_memeMe_1_0Tests.swift */; };
 		C5F3D54F311610F3B93E2EDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3DCB687D07240D0058FB6 /* AppDelegate.swift */; };
 		C5F3DC0FF72622C0214F56E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5F3D4EE96DE08711BD2F377 /* Main.storyboard */; };
-		F39B08171DB92127003FA21A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5F3D851AD229507033510D4 /* Info.plist */; };
+		F36B6ECA1E0BA49600926CA6 /* MemeMePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36B6EC91E0BA49600926CA6 /* MemeMePresenter.swift */; };
+		F36B6ED31E0D1B1A00926CA6 /* MemeMePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36B6ED21E0D1B1A00926CA6 /* MemeMePresenterTest.swift */; };
 		F3A19DF71DB963F800AB690A /* impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3A19DF41DB963F800AB690A /* impact.ttf */; };
 		F3A19DF81DB963F800AB690A /* Impacted.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3A19DF51DB963F800AB690A /* Impacted.ttf */; };
 		F3A19DF91DB963F800AB690A /* unicode.impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3A19DF61DB963F800AB690A /* unicode.impact.ttf */; };
@@ -53,7 +53,8 @@
 		C5F3DDCC14E8AA1C19609835 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5F3DE176BDD99B9F8737C09 /* io-nd-memeMe-1.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "io-nd-memeMe-1.0UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F3DE7EB0DDEBB016CB24D0 /* io_nd_memeMe_1_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = io_nd_memeMe_1_0UITests.swift; sourceTree = "<group>"; };
-		C5F3DF6D3BEDB70155222CBD /* io_nd_memeMe_1_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = io_nd_memeMe_1_0Tests.swift; sourceTree = "<group>"; };
+		F36B6EC91E0BA49600926CA6 /* MemeMePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeMePresenter.swift; sourceTree = "<group>"; };
+		F36B6ED21E0D1B1A00926CA6 /* MemeMePresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeMePresenterTest.swift; sourceTree = "<group>"; };
 		F3A19DF41DB963F800AB690A /* impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = impact.ttf; sourceTree = "<group>"; };
 		F3A19DF51DB963F800AB690A /* Impacted.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impacted.ttf; sourceTree = "<group>"; };
 		F3A19DF61DB963F800AB690A /* unicode.impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = unicode.impact.ttf; sourceTree = "<group>"; };
@@ -95,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				C5F3D6B7C62F4856AFAE3229 /* Info.plist */,
-				C5F3DF6D3BEDB70155222CBD /* io_nd_memeMe_1_0Tests.swift */,
+				F36B6ED21E0D1B1A00926CA6 /* MemeMePresenterTest.swift */,
 			);
 			path = "io-nd-memeMe-1.0Tests";
 			sourceTree = "<group>";
@@ -103,14 +104,14 @@
 		C5F3D0D99C04330FDDC29A95 /* io-nd-memeMe-1.0 */ = {
 			isa = PBXGroup;
 			children = (
+				F36B6ECE1E0BA53000926CA6 /* features */,
+				F36B6ECD1E0BA52500926CA6 /* util */,
+				F36B6ECC1E0BA51500926CA6 /* model */,
 				C5F3D851AD229507033510D4 /* Info.plist */,
 				C5F3DDCC14E8AA1C19609835 /* Assets.xcassets */,
 				C5F3D8824D847880633D089C /* LaunchScreen.storyboard */,
 				C5F3DCB687D07240D0058FB6 /* AppDelegate.swift */,
 				C5F3D4EE96DE08711BD2F377 /* Main.storyboard */,
-				C5F3D9034C1DE70D0994AC95 /* ViewController.swift */,
-				F3A19DFA1DBA7A2F00AB690A /* Meme.swift */,
-				F3A19DFC1DBBC22700AB690A /* Helper.swift */,
 			);
 			path = "io-nd-memeMe-1.0";
 			sourceTree = "<group>";
@@ -144,6 +145,39 @@
 				C5F3DE7EB0DDEBB016CB24D0 /* io_nd_memeMe_1_0UITests.swift */,
 			);
 			path = "io-nd-memeMe-1.0UITests";
+			sourceTree = "<group>";
+		};
+		F36B6ECC1E0BA51500926CA6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F3A19DFA1DBA7A2F00AB690A /* Meme.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		F36B6ECD1E0BA52500926CA6 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				F3A19DFC1DBBC22700AB690A /* Helper.swift */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
+		F36B6ECE1E0BA53000926CA6 /* features */ = {
+			isa = PBXGroup;
+			children = (
+				F36B6ECF1E0BA53D00926CA6 /* meme */,
+			);
+			name = features;
+			sourceTree = "<group>";
+		};
+		F36B6ECF1E0BA53D00926CA6 /* meme */ = {
+			isa = PBXGroup;
+			children = (
+				C5F3D9034C1DE70D0994AC95 /* ViewController.swift */,
+				F36B6EC91E0BA49600926CA6 /* MemeMePresenter.swift */,
+			);
+			name = meme;
 			sourceTree = "<group>";
 		};
 		F3A19DF31DB963D100AB690A /* Resources */ = {
@@ -218,7 +252,7 @@
 		C5F3DD97C7DDA328E33415E6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = swissonid;
 				TargetAttributes = {
 					C5F3D4C35133B833DB704C80 = {
@@ -269,7 +303,6 @@
 				F3A19DF71DB963F800AB690A /* impact.ttf in Resources */,
 				F3A19DF91DB963F800AB690A /* unicode.impact.ttf in Resources */,
 				F3A19DF81DB963F800AB690A /* Impacted.ttf in Resources */,
-				F39B08171DB92127003FA21A /* Info.plist in Resources */,
 				C5F3D146E2DF2188993B7FB5 /* Assets.xcassets in Resources */,
 				C5F3D1432B83DB6BA2549B09 /* LaunchScreen.storyboard in Resources */,
 				F3A19E021DBD208D00AB690A /* Localizable.strings in Resources */,
@@ -285,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3A19DFB1DBA7A2F00AB690A /* Meme.swift in Sources */,
+				F36B6ECA1E0BA49600926CA6 /* MemeMePresenter.swift in Sources */,
 				C5F3D54F311610F3B93E2EDF /* AppDelegate.swift in Sources */,
 				C5F3D0A28FD18FC148698A16 /* ViewController.swift in Sources */,
 				F3A19DFD1DBBC22700AB690A /* Helper.swift in Sources */,
@@ -295,7 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5F3D332D8D29E665328926F /* io_nd_memeMe_1_0Tests.swift in Sources */,
+				F36B6ED31E0D1B1A00926CA6 /* MemeMePresenterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

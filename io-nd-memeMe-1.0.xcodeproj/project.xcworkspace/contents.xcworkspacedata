@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/pmueller/Development/github/ios-nanodegree/ios-nd-meme-me-1.0/io-nd-memeMe-1.0.xcodeproj">
    </FileRef>
 </Workspace>

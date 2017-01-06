@@ -16,14 +16,14 @@
       <sourceFolder url="file://$MODULE_DIR$/de.lproj/Localizable.strings" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/io-nd-memeMe-1.0Tests/io_nd_memeMe_1_0Tests.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/io-nd-memeMe-1.0Tests/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/impact.ttf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/en.lproj/Localizable.strings" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/io-nd-memeMe-1.0UITests/io_nd_memeMe_1_0UITests.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/io-nd-memeMe-1.0UITests/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Impacted.ttf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Base.lproj/Localizable.strings" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/en.lproj/Localizable.strings" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/impact.ttf" isTestSource="false" />
     </content>
-    <content url="file://$USER_HOME$/Library/Caches/AppCode2016.3/DerivedData/io-nd-memeMe-1.0-cvlvukaspzhdcpdtcrveggrkmroy/Build/Intermediates/io-nd-memeMe-1.0.build/Debug-iphoneos/io-nd-memeMe-1.0.build/DerivedSources" />
+    <content url="file://$USER_HOME$/Library/Caches/AppCode2016.2/DerivedData/io-nd-memeMe-1.0-cvlvukaspzhdcpdtcrveggrkmroy/Build/Intermediates/io-nd-memeMe-1.0.build/Debug-iphoneos/io-nd-memeMe-1.0.build/DerivedSources" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library name="Header Search Paths">

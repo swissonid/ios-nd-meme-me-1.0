@@ -10,6 +10,7 @@ import UIKit
 
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+    
     @IBOutlet weak var innerContainer: UIView!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var topToolbar: UIToolbar!
@@ -20,14 +21,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
+
+    private var keyboardIsOpen = false;
+    private var currentMeme: Meme? = nil
+    private var topTextValue: String?
+    private var bottomTextValue: String?
+    private var isImageSet = false
     
-    
-    
-   
     override func viewWillAppear(_ animated: Bool) {
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        enableCancelButton()
         subscriptToKeyBoardNotification()
-    
         setAllText()
         addDoubleTabRecognizer()
     }
@@ -70,6 +74,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func setImage(_ picketImage: UIImage) {
         imageView.contentMode = .scaleAspectFill
         imageView.image = picketImage
+        isImageSet = true
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -77,17 +82,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func takePictureFrom(sourceType: UIImagePickerControllerSourceType){
-        let uiPickerController =  UIImagePickerController()
+        let uiPickerController = UIImagePickerController()
         uiPickerController.delegate = self
         uiPickerController.sourceType = sourceType
         present(uiPickerController, animated:true, completion:nil)
+    }
 
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        enableCancelButton()
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
+    func enableCancelButton() {
+        let isEnabled = !topText.text!.isEmpty
+            || !bottomText.text!.isEmpty
+            || isImageSet
+        cancelBarButton.isEnabled = isEnabled
+        
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -121,11 +133,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(_ notification: NSNotification) {
-        //view.frame.origin.y -= getKeyboardHeight(notification)
+        if keyboardIsOpen { return }
+        view.frame.origin.y -= getKeyboardHeight(notification)
+        keyboardIsOpen = true;
     }
     
     func keyboardDidDisapear(_ notfication: NSNotification) {
-        //view.frame.origin.y += getKeyboardHeight(notfication)
+        if !keyboardIsOpen { return }
+        view.frame.origin.y += getKeyboardHeight(notfication)
+        keyboardIsOpen = false
     }
     
     func getKeyboardHeight(_ notification: NSNotification) -> CGFloat {
@@ -142,26 +158,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func toogleToolbars(){
         print("try to hide toolbar")
-        self.navigationController?.setToolbarHidden(true, animated:true)
+        topToolbar.isHidden = !topToolbar.isHidden
+        bottomToolbar.isHidden = !bottomToolbar.isHidden
     }
     
     func save() {
         let memedImage = generateMemedImage()
-        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, memedImage: memedImage)
+        currentMeme = Meme(topText: topText.text!, bottomText: bottomText.text!, memedImage: memedImage)
     }
     
     func generateMemedImage() -> UIImage {
+        toogleToolbars();
         //render view to an image
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         innerContainer.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        toogleToolbars();
         return memedImage;
     }
     
+    @IBAction func share(_ sender: UIBarButtonItem) {
+        save()
+        let memeToShare = [currentMeme?.memedImage]
+        let activityUi = UIActivityViewController(activityItems: memeToShare, applicationActivities: nil)
+        activityUi.popoverPresentationController?.barButtonItem = sender
+        self.present(activityUi,animated:true, completion:nil)
+    }
 
     @IBAction func openAlbum(_ sender: AnyObject) {
         takePictureFrom(sourceType: .photoLibrary)
@@ -176,6 +200,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomText.text = nil
         imageView.contentMode = .center
         imageView.image = #imageLiteral(resourceName: "image_place_holder")
+        isImageSet = false
+        enableCancelButton()
     }
 
 }
