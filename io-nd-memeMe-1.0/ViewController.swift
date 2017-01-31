@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var bottomText: UITextField!
 
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
@@ -30,7 +31,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewWillAppear(_ animated: Bool) {
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        enableCancelButton()
+        enableCancelAndShareButton()
         subscriptToKeyBoardNotification()
         setAllText()
         addDoubleTabRecognizer()
@@ -89,15 +90,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        enableCancelButton()
+        enableCancelAndShareButton()
     }
     
-    func enableCancelButton() {
+    func enableCancelAndShareButton() {
         let isEnabled = !topText.text!.isEmpty
             || !bottomText.text!.isEmpty
             || isImageSet
         cancelBarButton.isEnabled = isEnabled
-        
+        shareButton.isEnabled = isEnabled
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -134,6 +135,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func keyboardWillShow(_ notification: NSNotification) {
         if keyboardIsOpen { return }
+        if topText.isFirstResponder { return }
         view.frame.origin.y -= getKeyboardHeight(notification)
         keyboardIsOpen = true;
     }
@@ -201,7 +203,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imageView.contentMode = .center
         imageView.image = #imageLiteral(resourceName: "image_place_holder")
         isImageSet = false
-        enableCancelButton()
+        enableCancelAndShareButton()
     }
 
 }

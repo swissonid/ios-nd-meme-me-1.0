@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -63,7 +63,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2rO-rj-Rv9" userLabel="TopToolbar">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="action" id="zMo-W9-pd9">
+                                    <barButtonItem enabled="NO" systemItem="action" id="zMo-W9-pd9">
                                         <connections>
                                             <action selector="share:" destination="BYZ-38-t0r" id="uob-A1-kcf"/>
                                         </connections>
@@ -116,6 +116,7 @@
                         <outlet property="cancelBarButton" destination="beG-sx-rpK" id="WdQ-BH-lsl"/>
                         <outlet property="imageView" destination="M2T-NH-2ZM" id="2Hg-yR-uBM"/>
                         <outlet property="innerContainer" destination="czb-Mj-GQJ" id="SGv-rS-oE8"/>
+                        <outlet property="shareButton" destination="zMo-W9-pd9" id="tGG-YS-0PO"/>
                         <outlet property="topText" destination="9dH-vZ-qpQ" id="qus-Tz-FXE"/>
                         <outlet property="topToolbar" destination="2rO-rj-Rv9" id="NeR-1R-kaG"/>
                     </connections>
